@@ -16,7 +16,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".LoginActivity" />
-        <activity android:name=".ListActivity"></activity>
+        <activity android:name=".ListActivity"
+            android:theme="@style/AppThemeActionbar">
+        </activity>
     </application>
 
 </manifest>

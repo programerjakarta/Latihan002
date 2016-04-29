@@ -21,8 +21,10 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-
+//        Snackbar.make(coordinatorLayout,"Username dan Password SALAH",Snackbar.LENGTH_SHORT).show();
+//        Snackbar.make(coordinatorLayout, "Snackbar", Snackbar.LENGTH_LONG)
+//                .setAction("Action", null).show();
+        coordinatorLayout = (CoordinatorLayout) findViewById(R.id.coordinatorLayout);
         //make windows full screen
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -43,13 +45,14 @@ public class LoginActivity extends AppCompatActivity {
                 //inisialisasi object
                 text1 = (TextView) findViewById(R.id.textLogin);
                 text2 = (TextView) findViewById(R.id.textPassword);
-                if (text1.getText().toString().trim() == "sp" && text1.getText().toString().trim() == "sp" ) {
+                Toast.makeText(getApplicationContext(),text2.getText().toString().trim(),Toast.LENGTH_SHORT).show();
+                if ((text1.getText().toString().trim().equals("sp")) && (text2.getText().toString().trim().equals("sp"))) {
                     Intent intent = new Intent(LoginActivity.this,ListActivity.class);
                     startActivity(intent);
                 } else {
 //                                    Toast.makeText(getApplicationContext(),text1.getText().toString(),Toast.LENGTH_SHORT).show();
 
-                    Snackbar snakbar = Snackbar.make(coordinatorLayout,"Username dan Password SALAH",Snackbar.LENGTH_SHORT);
+                    Snackbar snakbar = Snackbar.make(coordinatorLayout,"Username dan Password SALAH",Snackbar.LENGTH_SHORT).setAction("Action",null);
                     snakbar.show();
                 }
             }
